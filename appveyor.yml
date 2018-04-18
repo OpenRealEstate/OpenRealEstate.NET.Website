@@ -39,15 +39,15 @@ artifacts:
     type: WebDeployPackage
 
 deploy:
-    - provider: WebDeploy
-      server: https://openrealestate.scm.azurewebsites.net:443/msdeploy.axd?site=openrealestate
-      website: Homelyopenrealestate
-      username: $openrealestate
-      password:
-        secure: lto0KnlczCjb5J2xZ3xylSbLO+g/w+Nrb1W8+3McFn7Tk9kgHh4zDkwOxndlwTINVIO4gleGAbX2+JnBvAtkSg==
-      remove_files: true
-      app_offline: true
-      artifact: publish.website
+  - provider: WebDeploy
+    server: https://openrealestate.scm.azurewebsites.net:443/msdeploy.axd?site=openrealestate
+    website: Homelyopenrealestate
+    username: $openrealestate
+    password:
+      secure: lto0KnlczCjb5J2xZ3xylSbLO+g/w+Nrb1W8+3McFn7Tk9kgHh4zDkwOxndlwTINVIO4gleGAbX2+JnBvAtkSg==
+    artifact: publish.website
+    aspnet_core: true
+    aspnet_core_force_restart: true
 
 cache:
   - packages -> **\packages.config
