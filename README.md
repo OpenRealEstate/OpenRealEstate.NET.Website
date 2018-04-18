@@ -4,7 +4,7 @@
 
 This is a simple website that is used to test/validate any [OpenRealEstate](https://https://github.com/OpenRealEstate/OpenRealEstate) schemas (either REAXml or Json formatted) via pasting the text or loading multiple files. This website code leverages the .NET Core libraries.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/w3spu5y2l7phpv6i/branch/master?svg=true)](https://ci.appveyor.com/project/PureKrome/openrealestate-net-website) [![Website - click to test!](https://img.shields.io/badge/Website-Click%20to%20try!-blue.svg)](https://OpenRealEstate.azurewebsites.com)
+[![Build status](https://ci.appveyor.com/api/projects/status/w3spu5y2l7phpv6i/branch/master?svg=true)](https://ci.appveyor.com/project/PureKrome/openrealestate-net-website) [![Website - click to test!](https://img.shields.io/badge/Website-Click%20to%20try!-blue.svg)](https://openrealestate.azurewebsites.net/)
 
 ---
 
