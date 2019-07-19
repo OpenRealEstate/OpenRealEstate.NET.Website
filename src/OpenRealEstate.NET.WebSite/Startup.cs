@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +20,7 @@ namespace OpenRealEstate.WebSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
+            services.AddLogging();
             services.AddSingleton<ITransmorgrifier, ReaXmlTransmorgrifier>();
         }
 

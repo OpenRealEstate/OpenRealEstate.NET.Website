@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <Version>0.0.0</Version>
     <Authors>Justin Adler</Authors>
     <Company>Homely</Company>
@@ -11,38 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\xml\ReaXmlSample.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-Current-IncompleteLandDetails.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-OffMarket.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-Sold-DisplayPriceIsNo.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-Sold.xml" />
-    <Content Remove="wwwroot\xml\REA\Land\REA-Land-Withdrawn.xml" />
-    <Content Remove="wwwroot\xml\REA\REA-AllTypes.xml" />
-    <Content Remove="wwwroot\xml\REA\REA-BadContent.xml" />
-    <Content Remove="wwwroot\xml\REA\REA-InvalidCharacter.xml" />
-    <Content Remove="wwwroot\xml\REA\REA-MixedContent.xml" />
-    <Content Remove="wwwroot\xml\REA\Rental\REA-Rental-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Rental\REA-Rental-Leased.xml" />
-    <Content Remove="wwwroot\xml\REA\Rental\REA-Rental-OffMarket.xml" />
-    <Content Remove="wwwroot\xml\REA\Rental\REA-Rental-Withdrawn.xml" />
-    <Content Remove="wwwroot\xml\REA\Rental\REA-Segment-Rental-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Current-WithBadInspectionTime.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-CurrentBadInspectionTime.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-OffMarket.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Sold-DisplayPriceIsNo.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Sold-MissingDisplayPrice.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Sold.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Residential-Withdrawn.xml" />
-    <Content Remove="wwwroot\xml\REA\Residential\REA-Segment-Residential-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Rural\REA-Rural-Current.xml" />
-    <Content Remove="wwwroot\xml\REA\Rural\REA-Rural-OffMarket.xml" />
-    <Content Remove="wwwroot\xml\REA\Rural\REA-Rural-Sold-DisplayPriceIsNo.xml" />
-    <Content Remove="wwwroot\xml\REA\Rural\REA-Rural-Sold.xml" />
-    <Content Remove="wwwroot\xml\REA\Rural\REA-Rural-Withdrawn.xml" />
+    <PackageReference Include="Homely.AspNetCore.Hosting.CoreApp" Version="1.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="14.0.0-dev" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="20.0.0-dev" />
+    <PackageReference Include="OpenRealEstate.Validation" Version="10.0.0-dev" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <None Include="wwwroot\xml\ReaXmlSample.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -134,11 +110,6 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="11.0.0-dev" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="15.0.0-dev" />
-    <PackageReference Include="OpenRealEstate.Validation" Version="5.0.0-dev" />
-  </ItemGroup>
+
 
 </Project>
