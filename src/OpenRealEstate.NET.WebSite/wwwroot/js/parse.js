@@ -1,4 +1,4 @@
-﻿
+
 function cleanUpUI() {
     $('#jsonCode').text('');
     $('#errorMessage').html('');
@@ -32,6 +32,20 @@ function processText(isConvertingReaXmlToJson) {
         .fail(function (qXhr, textStatus, errorThrown) {
             $('#errorMessage').text(qXhr.responseText);
         });
+}
+function validateJson() {
+
+    var json = json = $('#openREJson').val();
+
+    $.post('parse/validateJson',
+        {
+            'json': json
+        })
+        .done(function (data) { displayListingResult(true, data); })
+        .fail(function (qXhr, textStatus, errorThrown) {
+            $('#errorMessage').text(qXhr.responseText);
+        });
+
 }
 
 function displayListingResult(isConvertingReaXmlToJson, data) {

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Version>0.0.0</Version>
     <Authors>Justin Adler</Authors>
     <Company>Homely</Company>
@@ -11,11 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Homely.AspNetCore.Hosting.CoreApp" Version="1.9.0" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="14.0.0-dev" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="20.0.0-dev" />
-    <PackageReference Include="OpenRealEstate.Validation" Version="10.0.0-dev" />
+    <PackageReference Include="Homely.AspNetCore.Hosting.CoreApp" Version="3.0.0" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="15.0.0-dev" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="30.0.0-dev" />
+    <PackageReference Include="OpenRealEstate.Validation" Version="27.0.0-dev" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
   

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using OpenRealEstate.Core;
 using OpenRealEstate.Core.Land;
 using OpenRealEstate.Core.Rental;
@@ -23,10 +23,17 @@ namespace OpenRealEstate.WebSite.Controllers
     public class ParseController : Controller
     {
         private readonly ITransmorgrifier _reaXmlTransmorgrifier;
+        private readonly ITransmorgrifier _jsonTransmorgrifier;
 
-        public ParseController(ITransmorgrifier reaXmlTransmorgrifier)
+        public ParseController(IEnumerable<ITransmorgrifier> transmorgrifiers)
         {
-            _reaXmlTransmorgrifier = reaXmlTransmorgrifier ?? throw new ArgumentNullException(nameof(reaXmlTransmorgrifier));
+            if (transmorgrifiers is null)
+            {
+                throw new ArgumentNullException(nameof(transmorgrifiers));
+            }
+
+            _reaXmlTransmorgrifier = transmorgrifiers.SingleOrDefault(x => x.Name == "REA") ?? throw new Exception("ReaXmlTransmorgrifier needs to be registered.");
+            _jsonTransmorgrifier = transmorgrifiers.SingleOrDefault(x => x.Name == "Json") ?? throw new Exception("JsonTransmorgrifier needs to be registered.");
         }
 
         [HttpPost("rea")]
@@ -35,6 +42,45 @@ namespace OpenRealEstate.WebSite.Controllers
             return string.IsNullOrWhiteSpace(reaXml)
                        ?  StatusCode((int) HttpStatusCode.BadRequest, Json("Please provide an ReaXml value to parse."))
                        : ParseReaXmlToJson(new Dictionary<string, string> { { "no file name", reaXml } });
+        }
+
+        [HttpPost("validateJson")]
+        public IActionResult ValidateJson([FromForm]string json)
+        {
+            if (string.IsNullOrWhiteSpace(json))
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, Json("Please provide some Json data to validate."));
+            }
+
+            try
+            {
+                var parsedResult = _jsonTransmorgrifier.Parse(json);
+
+                var result = new KeyValuePair<string, ParsedResult>("Provided Json", parsedResult);
+
+                var listings = new List<Listing>();
+                var validationErrors = new Dictionary<string, string>();
+
+                ExtractData(result, listings, validationErrors);
+
+                var viewModel = new ParsedViewModel
+                {
+                    ListingsJson = JsonConvertHelpers.SerializeObject(listings),
+                    ResidentialCount = listings.OfType<ResidentialListing>().Count(),
+                    RentalCount = listings.OfType<RentalListing>().Count(),
+                    LandCount = listings.OfType<LandListing>().Count(),
+                    RuralCount = listings.OfType<RuralListing>().Count(),
+                    ValidationErrors = validationErrors
+                };
+
+                return Json(viewModel);
+            }
+            catch(Exception exception)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError,
+                  $"Failed to validate the json data: Error message: {exception.InnerException?.Message ?? exception.Message}.");
+
+            }
         }
 
         [HttpPost("files")]

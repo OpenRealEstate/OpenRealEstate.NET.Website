@@ -1,4 +1,4 @@
-﻿
+
 @{
     Layout = "~/views/shared/_layout.cshtml";
 }
@@ -16,7 +16,7 @@
     </div>
 
     <button class="btn" type="button" onclick="processText(true);"><i class="icon-arrow-right"></i> REA XML to Json</button>
-    <button class="btn" type="button" onclick="processText(false);"><i class="icon-arrow-right"></i> Json to REA XML</button>
+    <button class="btn" type="button" onclick="validateJson();"><i class="icon-arrow-right"></i> Validate Json</button>
     <select id="fileNameOptions">
         <option value="Residential/REA-Residential-Current.xml" selected="selected">Residential - Current</option>
         <option value="Residential/REA-Residential-Current-WithBadInspectionTime.xml">Residential - Current with Bad Inspection Time</option>
