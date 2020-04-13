@@ -1,7 +1,7 @@
 
 version: '{build}.0.0-dev'
 configuration: Release
-os: Visual Studio 2017
+os: Visual Studio 2019
 pull_requests:
   do_not_increment_build_number: true
 
@@ -48,6 +48,3 @@ deploy:
     artifact: publish.website
     aspnet_core: true
     aspnet_core_force_restart: true
-
-cache:
-  - packages -> **\packages.config
