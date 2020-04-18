@@ -60,7 +60,7 @@ function displayListingResult(isConvertingReaXmlToJson, data) {
                 };
             });
 
-            var errorMessage = '<br>Errors have occurred.<br/><br/>';
+            var errorMessage = '<br><p style="color:red"><b>Validation Errors have occurred.</b></p><br/><br/>';
             $.each(errors, function(index, error) {
                 errorMessage = errorMessage + escapeHTML(error.Key) + ' - error: ' + escapeHTML(error.Value) + '<br/>';
             });
