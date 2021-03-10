@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Homely.AspNetCore.Hosting.CoreApp" Version="3.0.0" />
     <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="25.0.0-dev" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="48.0.0-dev" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="53.0.0-dev" />
     <PackageReference Include="OpenRealEstate.Validation" Version="32.0.0-dev" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
