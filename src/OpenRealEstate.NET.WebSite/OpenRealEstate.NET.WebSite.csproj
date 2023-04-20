@@ -12,10 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Homely.AspNetCore.Hosting.CoreApp" Version="3.0.0" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="105.0.0-beta" />
-    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="107.0.0-beta" />
-    <PackageReference Include="OpenRealEstate.Validation" Version="111.0.0-beta" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.Json" Version="109.0.0-beta" />
+    <PackageReference Include="OpenRealEstate.Transmorgrifiers.RealEstateComAu" Version="112.0.0-beta" />
+    <PackageReference Include="OpenRealEstate.Validation" Version="118.0.0-beta" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
   
   <ItemGroup>
